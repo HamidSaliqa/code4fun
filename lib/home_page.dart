@@ -15,7 +15,10 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(217, 217, 217, 1),
       appBar: AppBar(
-        title: Text('wassa',style: labelTextStyle,),
+        leading: Image.asset("assets/wassalogo.png"),
+
+        title: Text('wassa',style:TextStyle(fontSize: 25),),
+        backgroundColor: Color.fromRGBO(39, 49, 53, 1),
       ),
       body: Column(
         children: [
