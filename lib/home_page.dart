@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Expanded(child: slider()),
           Expanded(
-            child: customGridview(),
+            child: customGridview(context),
           ),
         ],
       )

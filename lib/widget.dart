@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+
+import 'about_wassa,dart.dart';
 ///font
 const labelTextStyle = TextStyle(
   fontSize:30,
@@ -86,14 +88,26 @@ class CustomButton extends StatelessWidget {
 var libraryNames = ["About WASSA", "Our Services", "Who Can Benefit?","Student Project","Gallery","Contact"];
 
 ///Home page Grid view use custom Button
- Widget customGridview(){
-  return GridView.count(
-    crossAxisCount: 2,
-    children: List.generate(libraryNames.length, (index) {
-      return CustomButton(
-        nameOfButton: libraryNames[index],
-        onPressed: () {},
+Widget customGridview(BuildContext context){
+  return Builder(
+    builder: (BuildContext context) {
+      return GridView.count(
+        crossAxisCount: 2,
+        children: List.generate(libraryNames.length, (index) {
+          return CustomButton(
+            nameOfButton: libraryNames[index],
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => onPessedCustomButton[libraryNames[index]]!),
+              );
+            },
+          );
+        }),
       );
-    }),
+    },
   );
 }
+Map<String,Widget> onPessedCustomButton = {
+   "About WASSA":AboutWassa_page(),
+};
