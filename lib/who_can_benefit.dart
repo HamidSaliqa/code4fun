@@ -20,7 +20,7 @@ class WhoCanBenefit extends StatelessWidget {
                   borderRadius: BorderRadius.circular(40),
                   color: Color.fromRGBO(245, 245, 245, 1),
                 ),
-                child:Column(
+                child: Column(
                   children: [
                     SizedBox(
                       height: 20,
@@ -42,9 +42,16 @@ class WhoCanBenefit extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(3, 125, 214, 0.5),
-                          ),
+                              borderRadius: BorderRadius.circular(35),
+                              color: Color.fromRGBO(3, 125, 214, 0.5),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurStyle: BlurStyle.inner,
+                                    blurRadius: 4,
+                                    spreadRadius: 0,
+                                    offset: Offset(0, 4),
+                                color: Colors.white12)
+                              ]),
                           child: Center(
                             child: Text(
                               'Page 1',
@@ -79,8 +86,7 @@ class WhoCanBenefit extends StatelessWidget {
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              fontFamily: "CustomFont"
-                          ),
+                              fontFamily: "CustomFont"),
                         ),
                       ),
                     ),
