@@ -14,26 +14,7 @@ class AboutWassa_page extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  child: const Icon(Icons.arrow_back_ios_sharp),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              Container(
-                child: const Icon(Icons.search),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 2,
+            height: 20,
           ),
           Expanded(
             child: Container(

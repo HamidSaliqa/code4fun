@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 import 'about_wassa,dart.dart';
+import 'our_services.dart';
 ///font
 const labelTextStyle = TextStyle(
   fontSize:30,
@@ -109,5 +110,7 @@ Widget customGridview(BuildContext context){
   );
 }
 Map<String,Widget> onPessedCustomButton = {
-   "About WASSA":AboutWassa_page(),
+   "About WASSA":const AboutWassa_page(),
+   "Our Services":const OurServices(),
+
 };
