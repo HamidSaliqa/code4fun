@@ -1,5 +1,7 @@
 import 'package:code4fun/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AboutWassa_page extends StatelessWidget {
   const AboutWassa_page({super.key});
@@ -104,7 +106,7 @@ class AboutWassa_page extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, "/quiz");
+                        launchUrlString('https://wassa.org.af/about/');
                       },
                       child: const Text(
                         "Read More",
