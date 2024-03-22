@@ -6,7 +6,7 @@ class OurServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(217, 217, 217, 1),
+      backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -14,6 +14,7 @@ class OurServices extends StatelessWidget {
           Expanded(
               child: Padding(
             padding: const EdgeInsets.all(25),
+            ///main con
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
@@ -35,25 +36,35 @@ class OurServices extends StatelessWidget {
                       ),
                     ),
                   ),
-                  ///first Con
+
                   ///first Con
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: PageView(
                         children: [
+                          ///page 1
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(35),
                               color: Color.fromRGBO(235, 235, 235, 1),
                             ),
-                            child: Center(
-                              child: Text(
-                                'Page 1',
-                                style: TextStyle(fontSize: 24),
-                              ),
+                            child:const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+
+                                Text(
+                                  'Mobile App',
+                                  style: TextStyle(color: Color.fromRGBO(3, 125, 214, 1),fontSize: 24,fontFamily: "CustomFont",fontWeight: FontWeight.bold),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  child: Text("Mobile apps are programs installed on mobile phones or tablets that provide various functionalities to users. These apps can include different types of applications, such as communication apps, media apps, games, business software, and more.",style:TextStyle(fontFamily: "CustomFont",fontSize: 17) ),
+                                ),
+                              ],
                             ),
                           ),
+                          ///page 2
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(35),
@@ -66,6 +77,7 @@ class OurServices extends StatelessWidget {
                               ),
                             ),
                           ),
+                          ///page 3
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(35),
@@ -85,23 +97,33 @@ class OurServices extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
+
+
                   ///second Con
-                  ///first Con
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: PageView(
                         children: [
+                          ///page 1
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(35),
                               color: Color.fromRGBO(235, 235, 235, 1),
                             ),
-                            child: Center(
-                              child: Text(
-                                'Page 1',
-                                style: TextStyle(fontSize: 24),
-                              ),
+                            child:const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+
+                                Text(
+                                  'Web Development',
+                                  style: TextStyle(color: Color.fromRGBO(3, 125, 214, 1),fontSize: 24,fontFamily: "CustomFont",fontWeight: FontWeight.bold),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  child: Text("Web development refers to the process of designing, building, and implementing websites and web applications. It involves various stages, including requirements analysis, user interface design, programming, testing, and deployment of the website or web application.",style:TextStyle(fontFamily: "CustomFont",fontSize: 17) ),
+                                ),
+                              ],
                             ),
                           ),
                           Container(

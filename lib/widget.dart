@@ -1,21 +1,25 @@
+import 'package:code4fun/who_can_benefit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 import 'about_wassa,dart.dart';
 import 'our_services.dart';
+
 ///font
 const labelTextStyle = TextStyle(
-  fontSize:30,
-  fontFamily:'CustomFont',
+  fontSize: 30,
+  fontFamily: 'CustomFont',
 );
+
 ///slider for image
-Widget slider(){
-  return  ImageSlideshow(
+Widget slider() {
+  return ImageSlideshow(
+
     /// Width of the [ImageSlideshow].
     width: double.infinity,
 
     /// Height of the [ImageSlideshow].
-    height:150,
+    height: 150,
 
     /// The page to show when first creating the [ImageSlideshow].
     initialPage: 0,
@@ -71,25 +75,37 @@ class CustomButton extends StatelessWidget {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           boxShadow: [
-            BoxShadow(color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
+            BoxShadow(
+                color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
           ]),
       child: ElevatedButton(
         style: ButtonStyle(
-            shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(21))),
-            backgroundColor: MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
+            shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(21))),
+            backgroundColor: MaterialStatePropertyAll(
+                Color.fromRGBO(3, 125, 214, 1))),
         onPressed: onPressed,
         child: Text(
-          nameOfButton,style: TextStyle(fontFamily:"CustomFont",fontSize: 30),
+          nameOfButton,
+          style: TextStyle(fontFamily: "CustomFont", fontSize: 30),
         ),
       ),
     );
   }
 }
+
 ///names for home page Button
-var libraryNames = ["About WASSA", "Our Services", "Who Can Benefit?","Student Project","Gallery","Contact"];
+var libraryNames = [
+  "About WASSA",
+  "Our Services",
+  "Who Can Benefit?",
+  "Student Project",
+  "Gallery",
+  "Contact"
+];
 
 ///Home page Grid view use custom Button
-Widget customGridview(BuildContext context){
+Widget customGridview(BuildContext context) {
   return Builder(
     builder: (BuildContext context) {
       return GridView.count(
@@ -100,7 +116,8 @@ Widget customGridview(BuildContext context){
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => onPessedCustomButton[libraryNames[index]]!),
+                MaterialPageRoute(builder: (
+                    context) => onPessedCustomButton[libraryNames[index]]!),
               );
             },
           );
@@ -109,8 +126,10 @@ Widget customGridview(BuildContext context){
     },
   );
 }
-Map<String,Widget> onPessedCustomButton = {
-   "About WASSA":const AboutWassa_page(),
-   "Our Services":const OurServices(),
+
+Map<String, Widget> onPessedCustomButton = {
+"About WASSA":const AboutWassa_page(),
+"Our Services":const OurServices(),
+"Who Can Benefit?":WhoCanBenefit(),
 
 };
