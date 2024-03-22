@@ -1,3 +1,4 @@
+import 'package:code4fun/student_project.dart';
 import 'package:code4fun/who_can_benefit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -14,7 +15,6 @@ const labelTextStyle = TextStyle(
 ///slider for image
 Widget slider() {
   return ImageSlideshow(
-
     /// Width of the [ImageSlideshow].
     width: double.infinity,
 
@@ -73,17 +73,15 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
-          ]),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
+      ]),
       child: ElevatedButton(
         style: ButtonStyle(
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(21))),
-            backgroundColor: MaterialStatePropertyAll(
-                Color.fromRGBO(3, 125, 214, 1))),
+            backgroundColor:
+                MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
         onPressed: onPressed,
         child: Text(
           nameOfButton,
@@ -116,8 +114,9 @@ Widget customGridview(BuildContext context) {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (
-                    context) => onPessedCustomButton[libraryNames[index]]!),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        onPessedCustomButton[libraryNames[index]]!),
               );
             },
           );
@@ -128,8 +127,8 @@ Widget customGridview(BuildContext context) {
 }
 
 Map<String, Widget> onPessedCustomButton = {
-"About WASSA":const AboutWassa_page(),
-"Our Services":const OurServices(),
-"Who Can Benefit?":WhoCanBenefit(),
-
+  "About WASSA": const AboutWassa_page(),
+  "Our Services": const OurServices(),
+  "Who Can Benefit?": WhoCanBenefit(),
+  "Student Project": StudentProject(),
 };

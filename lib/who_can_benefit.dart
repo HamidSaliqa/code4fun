@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class WhoCanBenefit extends StatelessWidget {
-  const WhoCanBenefit({super.key});
+  const WhoCanBenefit({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +22,22 @@ class WhoCanBenefit extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                         "Who Can Benefit?",
                         style: TextStyle(
-                            fontFamily: "CustomFont",
-                            fontSize: 60,
-                            color: Color.fromARGB(255, 6, 149, 203)),
+                          fontFamily: "CustomFont",
+                          fontSize: 60,
+                          color: Color.fromARGB(255, 6, 149, 203),
+                        ),
                       ),
                     ),
 
-                    ///first con
+                    /// First Container
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -44,7 +45,7 @@ class WhoCanBenefit extends StatelessWidget {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(3, 125, 214, 0.5),
+                            color: const Color.fromRGBO(3, 125, 214, 0.5),
                             boxShadow: const [
                               BoxShadow(
                                 blurStyle: BlurStyle.inner,
@@ -56,27 +57,39 @@ class WhoCanBenefit extends StatelessWidget {
                             ],
                           ),
                           child: ListView(
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            children: [
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            children: const [
                               SizedBox(height: 30),
                               Text(
-                                "■ Returness",
-                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                                "■ Returnees",
+                                style: TextStyle(
+                                  fontFamily: "CustomFont",
+                                  fontSize: 25,
+                                ),
                               ),
                               SizedBox(height: 30),
                               Text(
                                 "■ IDPs",
-                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                                style: TextStyle(
+                                  fontFamily: "CustomFont",
+                                  fontSize: 25,
+                                ),
                               ),
-                              SizedBox(height:30),
+                              SizedBox(height: 30),
                               Text(
                                 "■ University students",
-                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                                style: TextStyle(
+                                  fontFamily: "CustomFont",
+                                  fontSize: 25,
+                                ),
                               ),
                               SizedBox(height: 30),
                               Text(
                                 "■ School students",
-                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                                style: TextStyle(
+                                  fontFamily: "CustomFont",
+                                  fontSize: 25,
+                                ),
                               ),
                             ],
                           ),
@@ -84,14 +97,14 @@ class WhoCanBenefit extends StatelessWidget {
                       ),
                     ),
 
-                    ///read more button
+                    /// Read More Button
                     SizedBox(
                       height: 65,
                       width: 350,
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
-                            Color.fromARGB(255, 6, 149, 203),
+                            const Color.fromARGB(255, 6, 149, 203),
                           ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
@@ -105,10 +118,11 @@ class WhoCanBenefit extends StatelessWidget {
                         child: const Text(
                           "Read More",
                           style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "CustomFont"),
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "CustomFont",
+                          ),
                         ),
                       ),
                     ),
