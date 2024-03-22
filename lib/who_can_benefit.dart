@@ -32,7 +32,7 @@ class WhoCanBenefit extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: "CustomFont",
                             fontSize: 60,
-                            color: Color.fromRGBO(3, 125, 214, 1)),
+                            color: Color.fromARGB(255, 6, 149, 203)),
                       ),
                     ),
 
@@ -41,22 +41,44 @@ class WhoCanBenefit extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
+                          width: double.infinity,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(35),
-                              color: Color.fromRGBO(3, 125, 214, 0.5),
-                              boxShadow: [
-                                BoxShadow(
-                                  blurStyle: BlurStyle.inner,
-                                    blurRadius: 4,
-                                    spreadRadius: 0,
-                                    offset: Offset(0, 4),
-                                color: Colors.white12)
-                              ]),
-                          child: Center(
-                            child: Text(
-                              'Page 1',
-                              style: TextStyle(fontSize: 24),
-                            ),
+                            borderRadius: BorderRadius.circular(35),
+                            color: Color.fromRGBO(3, 125, 214, 0.5),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurStyle: BlurStyle.inner,
+                                blurRadius: 4,
+                                spreadRadius: 0,
+                                offset: Offset(0, 4),
+                                color: Colors.white,
+                              )
+                            ],
+                          ),
+                          child: ListView(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            children: [
+                              SizedBox(height: 30),
+                              Text(
+                                "■ Returness",
+                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                              ),
+                              SizedBox(height: 30),
+                              Text(
+                                "■ IDPs",
+                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                              ),
+                              SizedBox(height:30),
+                              Text(
+                                "■ University students",
+                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                              ),
+                              SizedBox(height: 30),
+                              Text(
+                                "■ School students",
+                                style: TextStyle(fontFamily: "CustomFont", fontSize: 25),
+                              ),
+                            ],
                           ),
                         ),
                       ),
