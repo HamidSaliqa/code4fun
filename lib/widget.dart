@@ -16,50 +16,58 @@ const labelTextStyle = TextStyle(
 
 ///slider for image
 Widget slider() {
-  return ImageSlideshow(
-    /// Width of the [ImageSlideshow].
-    width: double.infinity,
+  return Container(
+    width: 500,
+    height: 500,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20), color: Colors.brown),
+    child: ImageSlideshow(
+      indicatorRadius: 8,
 
-    /// Height of the [ImageSlideshow].
-    height: 100,
+      /// Width of the [ImageSlideshow].
+      width: double.infinity,
 
-    /// The page to show when first creating the [ImageSlideshow].
-    initialPage: 0,
+      /// Height of the [ImageSlideshow].
+      height: 100,
 
-    /// The color to paint the indicator.
-    indicatorColor: Colors.blue,
+      /// The page to show when first creating the [ImageSlideshow].
+      initialPage: 0,
 
-    /// The color to paint behind th indicator.
-    indicatorBackgroundColor: Colors.grey,
+      /// The color to paint the indicator.
+      indicatorColor: Colors.blue,
 
-    /// The widgets to display in the [ImageSlideshow].
-    /// Add the sample image file into the images folder
-    children: [
-      Image.asset(
-        'assets/wassa1.PNG',
-        fit: BoxFit.cover,
-      ),
-      Image.asset(
-        'assets/wassa2.PNG',
-        fit: BoxFit.cover,
-      ),
-      Image.asset(
-        'assets/wassa3.PNG',
-        fit: BoxFit.cover,
-      ),
-    ],
+      /// The color to paint behind th indicator.
+      indicatorBackgroundColor: Colors.grey,
 
-    /// Called whenever the page in the center of the viewport changes.
-    onPageChanged: (value) {
-      print('Page changed: $value');
-    },
+      /// The widgets to display in the [ImageSlideshow].
+      /// Add the sample image file into the images folder
+      children: [
+        Image.asset(
+          'assets/wassa1.PNG',
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          'assets/wassa2.PNG',
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          'assets/wassa3.PNG',
+          fit: BoxFit.cover,
+        ),
+      ],
 
-    /// Auto scroll interval.
-    /// Do not auto scroll with null or 0.
-    autoPlayInterval: 3000,
+      /// Called whenever the page in the center of the viewport changes.
+      onPageChanged: (value) {
+        print('Page changed: $value');
+      },
 
-    /// Loops back to first slide.
-    isLoop: true,
+      /// Auto scroll interval.
+      /// Do not auto scroll with null or 0.
+      autoPlayInterval: 3000,
+
+      /// Loops back to first slide.
+      isLoop: true,
+    ),
   );
 }
 
@@ -134,5 +142,5 @@ Map<String, Widget> onPessedCustomButton = {
   "Who Can Benefit?": const WhoCanBenefit(),
   "Student Project": StudentProject(),
   "Gallery": GalleryPage(),
-  "Contact":  const ContactUs(),
+  "Contact": const ContactUs(),
 };
