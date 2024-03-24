@@ -40,7 +40,7 @@ class GalleryPage extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Color.fromRGBO(217, 217, 217, 1),
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(30),
                         topRight: Radius.circular(30)),

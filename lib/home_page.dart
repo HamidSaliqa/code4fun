@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
         leading: Image.asset("assets/wassalogo.png"),
 
         title: Text('wassa',style:TextStyle(fontSize: 25),),
-        backgroundColor: Color.fromRGBO(39, 49, 53, 1),
+        backgroundColor: Color.fromARGB(255, 6, 149, 203),
       ),
       body: Column(
         children: [
