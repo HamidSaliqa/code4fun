@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 import 'about_wassa,dart.dart';
+import 'contact_us.dart';
 import 'gallery.dart';
 import 'our_services.dart';
 
@@ -130,7 +131,8 @@ Widget customGridview(BuildContext context) {
 Map<String, Widget> onPessedCustomButton = {
   "About WASSA": const AboutWassa_page(),
   "Our Services": const OurServices(),
-  "Who Can Benefit?": WhoCanBenefit(),
+  "Who Can Benefit?": const WhoCanBenefit(),
   "Student Project": StudentProject(),
   "Gallery": GalleryPage(),
+  "Contact":  const ContactUs(),
 };

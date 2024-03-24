@@ -15,7 +15,7 @@ class GalleryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gallery'),
+        title: const Text('Gallery'),
       ),
       body: ListView.builder(
         itemCount: images.length,
@@ -40,7 +40,7 @@ class GalleryPage extends StatelessWidget {
 class PhotoViewPage extends StatelessWidget {
   final String imageUrl;
 
-  const PhotoViewPage({required this.imageUrl});
+  const PhotoViewPage({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
