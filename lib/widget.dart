@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
 import 'about_wassa,dart.dart';
+import 'gallery.dart';
 import 'our_services.dart';
 
 ///font
@@ -19,7 +20,7 @@ Widget slider() {
     width: double.infinity,
 
     /// Height of the [ImageSlideshow].
-    height: 150,
+    height: 100,
 
     /// The page to show when first creating the [ImageSlideshow].
     initialPage: 0,
@@ -72,8 +73,8 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(boxShadow: [
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(boxShadow: [
         BoxShadow(color: Colors.black12, offset: Offset(2, 2), blurRadius: 8)
       ]),
       child: ElevatedButton(
@@ -81,11 +82,11 @@ class CustomButton extends StatelessWidget {
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(21))),
             backgroundColor:
-                MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
+                const MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
         onPressed: onPressed,
         child: Text(
           nameOfButton,
-          style: TextStyle(fontFamily: "CustomFont", fontSize: 30),
+          style: const TextStyle(fontFamily: "CustomFont", fontSize: 30),
         ),
       ),
     );
@@ -131,4 +132,5 @@ Map<String, Widget> onPessedCustomButton = {
   "Our Services": const OurServices(),
   "Who Can Benefit?": WhoCanBenefit(),
   "Student Project": StudentProject(),
+  "Gallery": GalleryPage(),
 };

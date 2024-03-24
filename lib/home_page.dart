@@ -22,8 +22,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         children: [
-          Expanded(child: slider()),
           Expanded(
+            flex: 1,
+              child: slider()),
+          Expanded(
+            flex: 2,
             child: customGridview(context),
           ),
         ],
