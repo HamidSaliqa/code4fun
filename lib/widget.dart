@@ -2,6 +2,7 @@ import 'package:code4fun/student_project.dart';
 import 'package:code4fun/who_can_benefit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
+import 'package:lottie/lottie.dart';
 
 import 'about_wassa,dart.dart';
 import 'contact_us.dart';
@@ -133,6 +134,14 @@ Widget customGridview(BuildContext context) {
         }),
       );
     },
+  );
+}
+Widget lottie(){
+  return Container(
+    width: 100,
+    height: 100,
+    color: Colors.blue,
+    child:  Lottie.asset("assets/AboutWASSA.jason"),
   );
 }
 
