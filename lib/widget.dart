@@ -17,57 +17,61 @@ const labelTextStyle = TextStyle(
 
 ///slider for image
 Widget slider() {
-  return Container(
-    width: 500,
-    height: 500,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20), color: Colors.brown),
-    child: ImageSlideshow(
-      indicatorRadius: 8,
+  return Padding(
+    padding:const EdgeInsets.only(top: 10,left: 12,right: 12),
+    child: Container(
+      clipBehavior: Clip.antiAlias,
+      width: 500,
+      height: 500,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color:const Color.fromRGBO(217, 217, 217, 1)),
+      child: ImageSlideshow(
+        indicatorRadius: 8,
 
-      /// Width of the [ImageSlideshow].
-      width: double.infinity,
+        /// Width of the [ImageSlideshow].
+        width: double.infinity,
 
-      /// Height of the [ImageSlideshow].
-      height: 100,
+        /// Height of the [ImageSlideshow].
+        height: 100,
 
-      /// The page to show when first creating the [ImageSlideshow].
-      initialPage: 0,
+        /// The page to show when first creating the [ImageSlideshow].
+        initialPage: 0,
 
-      /// The color to paint the indicator.
-      indicatorColor: Colors.blue,
+        /// The color to paint the indicator.
+        indicatorColor: Colors.blue,
 
-      /// The color to paint behind th indicator.
-      indicatorBackgroundColor: Colors.grey,
+        /// The color to paint behind th indicator.
+        indicatorBackgroundColor: Colors.grey,
 
-      /// The widgets to display in the [ImageSlideshow].
-      /// Add the sample image file into the images folder
-      children: [
-        Image.asset(
-          'assets/wassa1.PNG',
-          fit: BoxFit.cover,
-        ),
-        Image.asset(
-          'assets/wassa2.PNG',
-          fit: BoxFit.cover,
-        ),
-        Image.asset(
-          'assets/wassa3.PNG',
-          fit: BoxFit.cover,
-        ),
-      ],
+        /// The widgets to display in the [ImageSlideshow].
+        /// Add the sample image file into the images folder
+        children: [
+          Image.asset(
+            'assets/wassa1.PNG',
+            fit: BoxFit.cover,
+          ),
+          Image.asset(
+            'assets/wassa2.PNG',
+            fit: BoxFit.cover,
+          ),
+          Image.asset(
+            'assets/wassa3.PNG',
+            fit: BoxFit.cover,
+          ),
+        ],
 
-      /// Called whenever the page in the center of the viewport changes.
-      onPageChanged: (value) {
-        print('Page changed: $value');
-      },
+        /// Called whenever the page in the center of the viewport changes.
+        onPageChanged: (value) {
+          print('Page changed: $value');
+        },
 
-      /// Auto scroll interval.
-      /// Do not auto scroll with null or 0.
-      autoPlayInterval: 3000,
+        /// Auto scroll interval.
+        /// Do not auto scroll with null or 0.
+        autoPlayInterval: 3000,
 
-      /// Loops back to first slide.
-      isLoop: true,
+        /// Loops back to first slide.
+        isLoop: true,
+      ),
     ),
   );
 }

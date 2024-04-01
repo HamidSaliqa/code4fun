@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "330824475481",
+    "project_id": "code4fun-61f1e",
+    "storage_bucket": "code4fun-61f1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330824475481:android:6f48c3f19ffb6f51aa6248",
+        "android_client_info": {
+          "package_name": "com.example.code4fun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI3fn0zwvk-jANOf-D1tkBYKWH8Zstt_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

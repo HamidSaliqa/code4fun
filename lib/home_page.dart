@@ -12,20 +12,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(217, 217, 217, 1),
+        backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
         body: Column(
           children: [
             SafeArea(
               child: Container(
-                color: Color.fromRGBO(3, 125, 214, 0.8),
+                color: const Color.fromRGBO(3, 125, 214, 0.8),
                 child: Row(
                   children: [
                     Image.asset("assets/wassalogo.png"),
                     SizedBox(width: 10,),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Wassa",style: TextStyle(fontFamily: "CustomFont",fontSize: 20,color: Colors.white),),
+                        Text("WASSA",style: TextStyle(fontFamily: "CustomFont",fontSize: 20,color: Colors.white),),
                         Text("Woman Activity & Social service Association",style: TextStyle(color: Colors.white,fontFamily: "CustomFont",fontSize: 15),),
                       ],
                     ),
