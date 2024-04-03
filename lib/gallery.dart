@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:lottie/lottie.dart';
 import 'package:photo_view/photo_view.dart';
 
 class GalleryPage extends StatelessWidget {
@@ -12,7 +12,7 @@ class GalleryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 6, 149, 203),
+      backgroundColor: const Color.fromARGB(255, 6, 149, 203),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -38,7 +38,7 @@ class GalleryPage extends StatelessWidget {
             Expanded(
               flex: 15,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(217, 217, 217, 1),
                   borderRadius: BorderRadius.only(
@@ -50,10 +50,7 @@ class GalleryPage extends StatelessWidget {
                   future: fetchImageUrls(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return SpinKitFadingCircle(
-                        color: Colors.blue,
-                        size: 50.0,
-                      );
+                      return Lottie.asset("assets/loading.json",width:20,height: 80);
                     } else if (snapshot.hasError) {
                       return const Text('Error fetching image URLs');
                     } else if (snapshot.hasData) {

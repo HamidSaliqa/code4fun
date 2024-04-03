@@ -12,9 +12,7 @@ class DetailsProject extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Expanded(
             child: Container(
               width: double.infinity,
@@ -24,70 +22,76 @@ class DetailsProject extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  const SizedBox(height: 20),
                   Expanded(
                     flex: 3,
-                    child: ClipRRect(
-                      child: Image.asset(
-                        imagePath,
-                        fit: BoxFit.cover,
-                        width: 380,
-                        height: 217,
-                      ),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Expanded(
-                      flex: 3,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover,
                           width: double.infinity,
                           height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            color: Color.fromRGBO(235, 235, 235, 1),
-                          ),
-                          child: Center(
-                              child: const Text(
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Expanded(
+                    flex: 3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color.fromRGBO(235, 235, 235, 1),
+                        ),
+                        child: const Center(
+                          child: Text(
                             "Description",
-                            style: TextStyle(fontFamily: "CustomFont",fontSize: 30),
-                          )),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 65,
-                    width: 350,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Color.fromARGB(255, 6, 149, 203),
-                        ),
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(34),
+                            style: TextStyle(
+                              fontFamily: "CustomFont",
+                              fontSize: 30,
+                            ),
                           ),
                         ),
                       ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Project Link",
-                        style: TextStyle(
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: SizedBox(
+                      height: 65,
+                      width:double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                            const Color.fromARGB(255, 6, 149, 203),
+                          ),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(34),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: const Text(
+                          "Project Link",
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
-                            fontFamily: "CustomFont"),
+                            fontFamily: "CustomFont",
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                 ],
               ),
             ),
