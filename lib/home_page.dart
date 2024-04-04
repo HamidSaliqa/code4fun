@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   children: [
                     Image.asset("assets/wassalogo.png"),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

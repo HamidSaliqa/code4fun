@@ -82,7 +82,7 @@ class CustomButton extends StatelessWidget {
   final String nameOfButton;
   final VoidCallback onPressed;
 
-  CustomButton({required this.nameOfButton, required this.onPressed});
+  const CustomButton({super.key, required this.nameOfButton, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +99,7 @@ class CustomButton extends StatelessWidget {
                 const MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
         onPressed: onPressed,
         child: Text(
-          nameOfButton,
+          nameOfButton,textAlign: TextAlign.center,
           style: const TextStyle(fontFamily: "CustomFont", fontSize: 30),
         ),
       ),
@@ -151,7 +151,7 @@ Widget lottie(){
 
 Map<String, Widget> onPessedCustomButton = {
   "About WASSA": const AboutWassa_page(),
-  "Our Services": const OurServices(),
+  "Our Services":  const OurServices(),
   "Who Can Benefit?": const WhoCanBenefit(),
   "Student Project": StudentProject(),
   "Gallery": GalleryPage(),

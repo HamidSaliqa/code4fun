@@ -1,173 +1,172 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class OurServices extends StatelessWidget {
   const OurServices({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const Color primaryColor = Color.fromRGBO(3, 125, 214, 1);
+    const backgroundColor = Color.fromRGBO(217, 217, 217, 1);
+    const Color cardColor = Color.fromRGBO(235, 235, 235, 1);
+    const TextStyle titleStyle = TextStyle(
+      color: primaryColor,
+      fontSize: 30,
+      fontWeight: FontWeight.bold,
+      fontFamily: "CustomFont",
+    );
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
-                child: Padding(
-              padding: const EdgeInsets.all(12),
-
-              ///main con
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
-                        "Our Services:",
-                        style:
-                            TextStyle(fontFamily: "CustomFont", fontSize: 30),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: Text(
+                          "Our Services:",
+                          style: titleStyle,
+                        ),
                       ),
                     ),
-                  ),
-
-                  ///first Con
-                  Expanded(
-                    child: PageView(
-                      children: [
-                        ///page 1
-                        Container(
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              transitionDuration: const Duration(milliseconds: 500),
+                              pageBuilder: (_, __, ___) => const ServiceDetailsPage(
+                                animationPath: "assets/app.json",
+                                title: "Mobile App",
+                              ),
+                              transitionsBuilder: (_, animation, __, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
+                            color: cardColor,
                           ),
-                          child: const Column(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Expanded(
+                                child:
+                                    Lottie.asset("assets/app.json", width: 200),
+                              ),
+                              SizedBox(height: 20),
                               Text(
                                 'Mobile App',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(3, 125, 214, 1),
-                                    fontSize: 24,
-                                    fontFamily: "CustomFont",
-                                    fontWeight: FontWeight.bold),
+                                style: titleStyle,
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
-                                child: Text(
-                                    "Mobile apps are programs installed on mobile phones or tablets that provide various functionalities to users. These apps can include different types of applications, such as communication apps, media apps, games, business software, and more.",textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        fontFamily: "CustomFont",
-                                        fontSize: 17)),
-                              ),
+                              SizedBox(height: 20),
                             ],
                           ),
                         ),
-
-                        ///page 2
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Page 2',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                          ),
-                        ),
-
-                        ///page 3
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Page 3',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-
-                  ///second Con
-                  Expanded(
-                    child: PageView(
-                      children: [
-                        ///page 1
-                        Container(
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                              transitionDuration: const Duration(milliseconds: 500),
+                              pageBuilder: (_, __, ___) => const ServiceDetailsPage(
+                                animationPath: "assets/web.json",
+                                title: "Web Development",
+                              ),
+                              transitionsBuilder: (_, animation, __, child) {
+                                return FadeTransition(
+                                  opacity: animation,
+                                  child: child,
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
+                            color: cardColor,
                           ),
-                          child: const Column(
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text(
+                              Expanded(
+                                child:
+                                    Lottie.asset("assets/web.json", width: 200),
+                              ),
+                              const SizedBox(height: 20),
+                              const Text(
                                 'Web Development',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(3, 125, 214, 1),
-                                    fontSize: 24,
-                                    fontFamily: "CustomFont",
-                                    fontWeight: FontWeight.bold),
+                                style: titleStyle,
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 15),
-                                child: Text(
-                                    "Web development refers to the process of designing, building, and implementing websites and web applications. It involves various stages, including requirements analysis, user interface design, programming, testing, and deployment of the website or web application.",
-                                    textAlign: TextAlign.justify,
-                                    style: TextStyle(
-                                        fontFamily: "CustomFont",
-                                        fontSize: 17)),
-                              ),
+                              SizedBox(height: 20),
                             ],
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Page 2',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: Color.fromRGBO(235, 235, 235, 1),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Page 3',
-                              style: TextStyle(fontSize: 24),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                ],
+                  ],
+                ),
               ),
-            )),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ServiceDetailsPage extends StatelessWidget {
+  final String animationPath;
+  final String title;
+
+  const ServiceDetailsPage({
+    Key? key,
+    required this.animationPath,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Lottie.asset(animationPath, width: 300),
+          SizedBox(height: 20),
+          const Text(
+            "Info",
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
