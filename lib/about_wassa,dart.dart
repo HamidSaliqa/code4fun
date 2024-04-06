@@ -45,7 +45,7 @@ class AboutWassa_page extends StatelessWidget {
                         height: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          color: Color.fromRGBO(235, 235, 235, 1),
+                          color: const Color.fromRGBO(235, 235, 235, 1),
                         ),
                         child: const SingleChildScrollView(
                           child: Padding(
