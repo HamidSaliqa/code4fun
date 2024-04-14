@@ -2,7 +2,6 @@ import 'package:code4fun/student_project.dart';
 import 'package:code4fun/who_can_benefit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'package:lottie/lottie.dart';
 
 import 'about_wassa,dart.dart';
 import 'contact_us.dart';
@@ -43,6 +42,18 @@ Widget slider() {
         /// The color to paint behind th indicator.
         indicatorBackgroundColor: Colors.grey,
 
+        /// Called whenever the page in the center of the viewport changes.
+        onPageChanged: (value) {
+          print('Page changed: $value');
+        },
+
+        /// Auto scroll interval.
+        /// Do not auto scroll with null or 0.
+        autoPlayInterval: 3000,
+
+        /// Loops back to first slide.
+        isLoop: true,
+
         /// The widgets to display in the [ImageSlideshow].
         /// Add the sample image file into the images folder
         children: [
@@ -59,18 +70,6 @@ Widget slider() {
             fit: BoxFit.cover,
           ),
         ],
-
-        /// Called whenever the page in the center of the viewport changes.
-        onPageChanged: (value) {
-          print('Page changed: $value');
-        },
-
-        /// Auto scroll interval.
-        /// Do not auto scroll with null or 0.
-        autoPlayInterval: 3000,
-
-        /// Loops back to first slide.
-        isLoop: true,
       ),
     ),
   );
@@ -138,14 +137,6 @@ Widget customGridview(BuildContext context) {
         }),
       );
     },
-  );
-}
-Widget lottie(){
-  return Container(
-    width: 100,
-    height: 100,
-    color: Colors.blue,
-    child:  Lottie.asset("assets/AboutWASSA.jason"),
   );
 }
 

@@ -8,14 +8,14 @@ class OurServices extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const String textOfApp =
-        '''Mobile apps can be built using various programming languages. In the realm of mobile app development, common languages include Java, Kotlin, Swift, and C#. However, other languages can also be used for mobile app development, such as C++, Python, and JavaScript.
+    '''Mobile apps can be built using various programming languages. In the realm of mobile app development, common languages include Java, Kotlin, Swift, and C#. However, other languages can also be used for mobile app development, such as C++, Python, and JavaScript.
 
 In the realm of hybrid app development, which involves creating apps through the web using technologies like HTML, CSS, and JavaScript, popular frameworks include React Native and Flutter. These frameworks allow you to develop cross-platform mobile apps using web-based languages.
 
 Ultimately, the choice of programming language for mobile app development depends on the type of app you want to build and your specific needs.''';
 
     const String textOfWeb =
-        ''' Web Programming Languages: Common languages in web development include HTML (HyperText Markup Language), CSS (Cascading Style Sheets), and JavaScript. HTML is used for structuring and content of a website, CSS is used for visual design and appearance, and JavaScript is used for interactive programming.
+    ''' Web Programming Languages: Common languages in web development include HTML (HyperText Markup Language), CSS (Cascading Style Sheets), and JavaScript. HTML is used for structuring and content of a website, CSS is used for visual design and appearance, and JavaScript is used for interactive programming.
 
 Web Frameworks: Web frameworks are collections of tools and libraries that assist developers in building web applications. Some popular web frameworks in development include Django and Flask for Python, Ruby on Rails for Ruby, Express.js and Node.js for JavaScript, and Laravel for PHP.
 
@@ -60,13 +60,13 @@ Database: To store and manage website data, commonly used database management sy
                             context,
                             PageRouteBuilder(
                               transitionDuration:
-                                  const Duration(milliseconds: 500),
+                              const Duration(milliseconds: 500),
                               pageBuilder: (_, __, ___) =>
-                                  const ServiceDetailsPage(
+                              const ServiceDetailsPage(
                                 animationPath: "assets/app.json",
                                 title: "Mobile App",
                                 infoText: textOfApp,
-                                    height: 0,
+                                height: 0,
                               ),
                               transitionsBuilder: (_, animation, __, child) {
                                 return FadeTransition(
@@ -88,7 +88,7 @@ Database: To store and manage website data, commonly used database management sy
                             children: [
                               Expanded(
                                 child:
-                                    Lottie.asset("assets/app.json", width: 200),
+                                Lottie.asset("assets/app.json", width: 200),
                               ),
                               const SizedBox(height: 20),
                               const Text(
@@ -111,13 +111,13 @@ Database: To store and manage website data, commonly used database management sy
                             context,
                             PageRouteBuilder(
                               transitionDuration:
-                                  const Duration(milliseconds: 500),
+                              const Duration(milliseconds: 500),
                               pageBuilder: (_, __, ___) =>
-                                  const ServiceDetailsPage(
+                              const ServiceDetailsPage(
                                 animationPath: "assets/web.json",
                                 title: "Web Development",
                                 infoText: textOfWeb,
-                                    height: 20,
+                                height: 20,
                               ),
                               transitionsBuilder: (_, animation, __, child) {
                                 return FadeTransition(
@@ -139,7 +139,7 @@ Database: To store and manage website data, commonly used database management sy
                             children: [
                               Expanded(
                                 child:
-                                    Lottie.asset("assets/web.json", width: 200),
+                                Lottie.asset("assets/web.json", width: 200),
                               ),
                               const SizedBox(height: 20),
                               const Text(
