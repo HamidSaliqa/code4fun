@@ -43,28 +43,28 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
       infoText:
           "Flutter is a cross-platform framework developed by Google for building mobile applications. It allows developers to write code once and deploy it on multiple platforms, such as iOS and Android. Flutter uses the Dart programming language and provides a rich set of pre-built UI components, allowing for the creation of beautiful and responsive user interfaces. With Flutter, developers can create high-performance applications with a single codebase, saving time and effort in the development process.",
       iconUrl: "https://img.icons8.com/color/48/flutter.png",
-      serviceKey: "flutter", // اضافه کردن شناسه serviceKey
+      serviceKey: "flutter",
     ),
     ServiceInfo(
       title: "Java",
       infoText:
           "Java is an object-oriented programming language that can be executed on the Java platform and Java Virtual Machines (JVMs). It was developed by Sun Microsystems (now part of Oracle Corporation). Java is widely recognized as a popular programming language in the software industry and is used for developing a wide range of applications, including desktop, web, and mobile applications. It offers features such as platform independence, strong memory management, and extensive libraries, making it a versatile and powerful language for software development.",
       iconUrl: "https://img.icons8.com/dusk/64/java-coffee-cup-logo.png",
-      serviceKey: "java", // اضافه کردن شناسه serviceKey
+      serviceKey: "java",
     ),
     ServiceInfo(
       title: "C++",
       infoText:
           "C++ is a powerful, general-purpose programming language that was developed as an extension of the C programming language. It was created by Bjarne Stroustrup in the early 1980s. C++ combines the features of both procedural and object-oriented programming paradigms, allowing developers to write efficient and high-performance code. It provides low-level control over hardware resources and supports features such as classes, inheritance, polymorphism, and templates. C++ is widely used in areas such as game development, embedded systems, operating systems, and high-performance computing. Its versatility and performance make it a popular choice for developers who require fine-grained control over their code.",
       iconUrl: "https://img.icons8.com/fluency/48/c-plus-plus-logo.png",
-      serviceKey: "C++", // اضافه کردن شناسه serviceKey
+      serviceKey: "C++",
     ),
     ServiceInfo(
       title: "Swift",
       infoText:
           "Swift is a modern, general-purpose programming language developed by Apple for iOS, macOS, watchOS, and tvOS app development. It was introduced in 2014 as a replacement for Objective-C and quickly gained popularity among developers. Swift is designed to be safe, fast, and expressive, with a syntax that is easy to read and write. It incorporates modern language features such as optionals, type inference, closures, and generics, making code more concise and less prone to errors. Swift also provides powerful frameworks and libraries that enable developers to build robust and feature-rich applications. With its strong focus on performance and developer productivity, Swift has become the preferred language for iOS and macOS app development.",
       iconUrl: "https://img.icons8.com/bubbles/100/swift.png",
-      serviceKey: "Swift", // اضافه کردن شناسه serviceKey
+      serviceKey: "Swift",
     ),
   ];
   Map<String, String> animationPaths = {
@@ -115,22 +115,26 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: List.generate(serviceList.length, (index) {
-                return customCon(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedServiceIndex = index;
-                      });
-                    },
-                    child: Image.network(serviceList[index].iconUrl),
+                return Container(
+                  width: 50, // Set the desired width
+                  height: 50, // Set the desired height
+                  child: customCon(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedServiceIndex = index;
+                        });
+                      },
+                      child: Image.network(serviceList[index].iconUrl),
+                    ),
+                    index: index,
                   ),
-                  index: index,
                 );
               }),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
           ],
         ),
       ),
