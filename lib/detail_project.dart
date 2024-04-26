@@ -29,7 +29,7 @@ class DetailsProject extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
+                        child: Image.network(
                           imagePath,
                           fit: BoxFit.cover,
                           width: double.infinity,

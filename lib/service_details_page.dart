@@ -36,6 +36,7 @@ class ServiceDetailsPage extends StatefulWidget {
 class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
   bool isExpanded = false;
   int selectedServiceIndex = -1;
+  Color fColorCon = const Color.fromRGBO(235, 235, 235, 1);
 
   List<ServiceInfo> serviceList = [
     ServiceInfo(
@@ -84,12 +85,13 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
+              ///first container
               child: Container(
                 height: 350,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
-                  color: const Color.fromRGBO(235, 235, 235, 1),
+                  color:fColorCon,
                 ),
                 child: customChild(),
               ),
@@ -142,6 +144,9 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
   }
 
   Widget customCon({Widget? child, int index = -1}) {
+    bool isSelected = selectedServiceIndex == index;
+    Color containerColor = isSelected ? Colors.black12 : Colors.transparent;
+
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -155,13 +160,13 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
       child: Container(
         width: 90,
         height: 90,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           shape: BoxShape.circle,
         ),
         child: Stack(
           children: [
             child!,
-            if (selectedServiceIndex == index)
+            if (isSelected)
               Positioned.fill(
                 child: GestureDetector(
                   onTap: () {
