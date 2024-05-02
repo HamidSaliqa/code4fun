@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:lottie/lottie.dart';
 import 'detail_project.dart';
 
 class StudentProject extends StatefulWidget {
@@ -57,8 +58,8 @@ class _StudentProjectState extends State<StudentProject> {
           elevation: 0,
         ) ,
         body: imagePaths.isEmpty
-            ? const Center(
-          child: CircularProgressIndicator(),
+            ?  Center(
+          child:Lottie.asset("assets/loading.json",),
         )
             : LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
