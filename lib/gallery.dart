@@ -57,6 +57,7 @@ class GalleryPage extends StatelessWidget {
                       topRight: Radius.circular(30),
                     ),
                   ),
+
                   child: FutureBuilder<List<String>>(
                     future: fetchImageUrls(),
                     builder: (context, snapshot) {

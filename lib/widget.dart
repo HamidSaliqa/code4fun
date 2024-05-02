@@ -2,7 +2,6 @@ import 'package:code4fun/student_project.dart';
 import 'package:code4fun/who_can_benefit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-
 import 'about_wassa,dart.dart';
 import 'contact_us.dart';
 import 'gallery.dart';
@@ -14,8 +13,9 @@ const labelTextStyle = TextStyle(
   fontFamily: 'CustomFont',
 );
 
+
 ///slider for image
-Widget slider() {
+Widget slider({required List<String> image}) {
   return Padding(
     padding:const EdgeInsets.only(top: 10,left: 12,right: 12),
     child: Container(
@@ -25,6 +25,7 @@ Widget slider() {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color:const Color.fromRGBO(217, 217, 217, 1)),
       child: ImageSlideshow(
+
         indicatorRadius: 8,
 
         /// Width of the [ImageSlideshow].
@@ -57,18 +58,8 @@ Widget slider() {
         /// The widgets to display in the [ImageSlideshow].
         /// Add the sample image file into the images folder
         children: [
-          Image.asset(
-            'assets/wassa1.PNG',
-            fit: BoxFit.cover,
-          ),
-          Image.asset(
-            'assets/wassa2.PNG',
-            fit: BoxFit.cover,
-          ),
-          Image.asset(
-            'assets/wassa3.PNG',
-            fit: BoxFit.cover,
-          ),
+          for (var imageUrl in image)
+            Image.network(imageUrl),
         ],
       ),
     ),
