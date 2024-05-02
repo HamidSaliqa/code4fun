@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:photo_view/photo_view.dart';
 
@@ -11,92 +12,103 @@ class GalleryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 6, 149, 203),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const SizedBox(
-              height: 40,
-            ),
-            const Expanded(
-              child: Text(
-                "Gallery",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: "CustomFont",
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
-                textAlign: TextAlign.center,
+    return WillPopScope(
+      onWillPop: ()async{
+        Get.toNamed("/Home");
+        return true ;
+      },
+      child: Scaffold(
+        appBar:AppBar(
+          foregroundColor:Colors.white,
+          backgroundColor:Colors.transparent,
+          elevation: 0,
+        ) ,
+        backgroundColor: const Color.fromARGB(255, 6, 149, 203),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(
+                height: 40,
               ),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Expanded(
-              flex: 15,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(217, 217, 217, 1),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
+              const Expanded(
+                child: Text(
+                  "Gallery",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "CustomFont",
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                child: FutureBuilder<List<String>>(
-                  future: fetchImageUrls(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Lottie.asset("assets/loading.json",width:20,height: 80);
-                    } else if (snapshot.hasError) {
-                      return const Text('Error fetching image URLs');
-                    } else if (snapshot.hasData) {
-                      final imageUrls = snapshot.data!;
-                      return GridView.builder(
-                        itemCount: imageUrls.length,
-                        gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                        ),
-                        itemBuilder: (context, index) {
-                          return RawMaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ImageDetails(
-                                    imageUrl: imageUrls[index],
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Expanded(
+                flex: 15,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                  decoration: const BoxDecoration(
+                    color: Color.fromRGBO(217, 217, 217, 1),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: FutureBuilder<List<String>>(
+                    future: fetchImageUrls(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Lottie.asset("assets/loading.json",width:20,height: 80);
+                      } else if (snapshot.hasError) {
+                        return const Text('Error fetching image URLs');
+                      } else if (snapshot.hasData) {
+                        final imageUrls = snapshot.data!;
+                        return GridView.builder(
+                          itemCount: imageUrls.length,
+                          gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
+                          ),
+                          itemBuilder: (context, index) {
+                            return RawMaterialButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ImageDetails(
+                                      imageUrl: imageUrls[index],
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                  image: CachedNetworkImageProvider(
-                                    imageUrls[index],
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                    image: CachedNetworkImageProvider(
+                                      imageUrls[index],
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
                               ),
-                            ),
-                          );
-                        },
-                      );
-                    } else {
-                      return const SizedBox();
-                    }
-                  },
+                            );
+                          },
+                        );
+                      } else {
+                        return const SizedBox();
+                      }
+                    },
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

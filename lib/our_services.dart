@@ -1,5 +1,6 @@
 import 'package:code4fun/service_details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class OurServices extends StatelessWidget {
@@ -29,134 +30,139 @@ Database: To store and manage website data, commonly used database management sy
       fontWeight: FontWeight.bold,
       fontFamily: "CustomFont",
     );
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(
-                          "Our Services:",
-                          style: titleStyle,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              transitionDuration:
-                              const Duration(milliseconds: 500),
-                              pageBuilder: (_, __, ___) =>
-                              const ServiceDetailsPage(
-                                animationPath: "assets/app.json",
-                                title: "Mobile App",
-                                infoText: textOfApp,
-                                height: 0,
+    return WillPopScope(
+      onWillPop: ()async{
+        Get.toNamed("/Home");
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: backgroundColor,
+        appBar:AppBar(
+          title: const Text(
+            "Our Services:",
+            style: titleStyle,
+          ),
+          foregroundColor: primaryColor,
+          backgroundColor:Colors.transparent,
+          elevation: 0,
+        ) ,
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration:
+                                const Duration(milliseconds: 500),
+                                pageBuilder: (_, __, ___) =>
+                                const ServiceDetailsPage(
+                                  animationPath: "assets/app.json",
+                                  title: "Mobile App",
+                                  infoText: textOfApp,
+                                  height: 0,
+                                ),
+                                transitionsBuilder: (_, animation, __, child) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
                               ),
-                              transitionsBuilder: (_, animation, __, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(35),
+                              color: cardColor,
                             ),
-                          );
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: cardColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child:
-                                Lottie.asset("assets/app.json", width: 200),
-                              ),
-                              const SizedBox(height: 20),
-                              const Text(
-                                'Mobile App',
-                                style: titleStyle,
-                              ),
-                              const SizedBox(height: 20),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            PageRouteBuilder(
-                              transitionDuration:
-                              const Duration(milliseconds: 500),
-                              pageBuilder: (_, __, ___) =>
-                              const ServiceDetailsPage(
-                                animationPath: "assets/web.json",
-                                title: "Web Development",
-                                infoText: textOfWeb,
-                                height: 20,
-                              ),
-                              transitionsBuilder: (_, animation, __, child) {
-                                return FadeTransition(
-                                  opacity: animation,
-                                  child: child,
-                                );
-                              },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child:
+                                  Lottie.asset("assets/app.json", width: 200),
+                                ),
+                                const SizedBox(height: 20),
+                                const Text(
+                                  'Mobile App',
+                                  style: titleStyle,
+                                ),
+                                const SizedBox(height: 20),
+                              ],
                             ),
-                          );
-                        },
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(35),
-                            color: cardColor,
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child:
-                                Lottie.asset("assets/web.json", width: 200),
-                              ),
-                              const SizedBox(height: 20),
-                              const Text(
-                                'Web Development',
-                                style: titleStyle,
-                              ),
-                              const SizedBox(height: 20),
-                            ],
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                transitionDuration:
+                                const Duration(milliseconds: 500),
+                                pageBuilder: (_, __, ___) =>
+                                const ServiceDetailsPage(
+                                  animationPath: "assets/web.json",
+                                  title: "Web Development",
+                                  infoText: textOfWeb,
+                                  height: 20,
+                                ),
+                                transitionsBuilder: (_, animation, __, child) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(35),
+                              color: cardColor,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child:
+                                  Lottie.asset("assets/web.json", width: 200),
+                                ),
+                                const SizedBox(height: 20),
+                                const Text(
+                                  'Web Development',
+                                  style: titleStyle,
+                                ),
+                                const SizedBox(height: 20),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

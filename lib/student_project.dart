@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'detail_project.dart';
 
 class StudentProject extends StatefulWidget {
@@ -43,72 +45,83 @@ class _StudentProjectState extends State<StudentProject> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: imagePaths.isEmpty
-          ? const Center(
-        child: CircularProgressIndicator(),
-      )
-          : LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return ListView.builder(
-            itemCount: imagePaths.length,
-            itemBuilder: (BuildContext context, int index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => DetailsProject(
-                        imagePath: imagePaths[index % imagePaths.length],
-                      ),
-                    ),
-                  );
-                },
-                child: Container(
-                  width: constraints.maxWidth * 0.9,
-                  height: constraints.maxWidth * 0.9 * 204 / 316,
-                  margin: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(21),
-                  ),
-                  child: Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(21),
-                        child: Image.network(
-                          imagePaths[index % imagePaths.length],
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: double.infinity,
+    return WillPopScope(
+      onWillPop: () async {
+        Get.toNamed("/Home");
+        return true;
+      },
+      child: Scaffold(
+        appBar:AppBar(
+          foregroundColor:const Color.fromRGBO(3, 125, 214, 1),
+          backgroundColor:Colors.transparent,
+          elevation: 0,
+        ) ,
+        body: imagePaths.isEmpty
+            ? const Center(
+          child: CircularProgressIndicator(),
+        )
+            : LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return ListView.builder(
+              itemCount: imagePaths.length,
+              itemBuilder: (BuildContext context, int index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsProject(
+                          imagePath: imagePaths[index % imagePaths.length],
                         ),
                       ),
-                      Positioned(
-                        bottom: 10,
-                        left: 10,
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(8),
+                    );
+                  },
+                  child: Container(
+                    width: constraints.maxWidth * 0.9,
+                    height: constraints.maxWidth * 0.9 * 204 / 316,
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(21),
+                    ),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(21),
+                          child: Image.network(
+                            imagePaths[index % imagePaths.length],
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
                           ),
-                          child: Text(
-                            'Project ${index + 1}',
-                            style: const TextStyle(
-                              fontFamily: "CustomFont",
-                              fontSize: 14,
-                              color: Colors.white,
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          left: 10,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Text(
+                              'Project ${index + 1}',
+                              style: const TextStyle(
+                                fontFamily: "CustomFont",
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              );
-            },
-          );
-        },
+                );
+              },
+            );
+          },
+        ),
       ),
     );
   }

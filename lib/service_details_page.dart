@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class ServiceInfo {
@@ -17,16 +18,16 @@ class ServiceInfo {
 
 class ServiceDetailsPage extends StatefulWidget {
   final double? height;
-  final String animationPath;
-  final String title;
-  final String infoText;
+  final String? animationPath;
+  final String? title;
+  final String? infoText;
 
   const ServiceDetailsPage({
     Key? key,
     this.height,
-    required this.animationPath,
-    required this.title,
-    required this.infoText,
+    this.animationPath,
+     this.title,
+     this.infoText,
   }) : super(key: key);
 
   @override
@@ -77,67 +78,73 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              ///first container
-              child: Container(
-                height: 350,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  color:fColorCon,
-                ),
-                child: customChild(),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Padding(
-                padding: const EdgeInsets.all(15),
+    return WillPopScope(
+      onWillPop: ()async {
+        Get.toNamed("/OurServices");
+        return true;
+      },
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                ///first container
                 child: Container(
+                  height: 350,
                   width: double.infinity,
-                  height: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromRGBO(235, 235, 235, 1),
+                    color:fColorCon,
                   ),
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: customChildText(widget.infoText),
+                  child: customChild(),
+                ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color.fromRGBO(235, 235, 235, 1),
+                    ),
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: customChildText(widget.infoText!),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: List.generate(serviceList.length, (index) {
-                return Container(
-                  width: 50, // Set the desired width
-                  height: 50, // Set the desired height
-                  child: customCon(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedServiceIndex = index;
-                        });
-                      },
-                      child: Image.network(serviceList[index].iconUrl),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List.generate(serviceList.length, (index) {
+                  return Container(
+                    width: 50, // Set the desired width
+                    height: 50, // Set the desired height
+                    child: customCon(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedServiceIndex = index;
+                          });
+                        },
+                        child: Image.network(serviceList[index].iconUrl),
+                      ),
+                      index: index,
                     ),
-                    index: index,
-                  ),
-                );
-              }),
-            ),
-            const SizedBox(height: 20),
-          ],
+                  );
+                }),
+              ),
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
@@ -185,7 +192,7 @@ class _ServiceDetailsPageState extends State<ServiceDetailsPage> {
 
   Widget customChild() {
     if (selectedServiceIndex == -1) {
-      return Lottie.asset(widget.animationPath);
+      return Lottie.asset(widget.animationPath!);
     } else {
       String serviceKey = serviceList[selectedServiceIndex].serviceKey;
       String animationPath = animationPaths[serviceKey]!;
