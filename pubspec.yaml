@@ -49,6 +49,10 @@ dependencies:
   animations: ^2.0.8
   animated_size_and_fade: ^3.0.1
   get: ^4.6.6
+  google_nav_bar: ^5.0.6
+  curved_navigation_bar: ^1.0.3
+  firebase_database: ^10.4.0
+  image_picker: ^1.0.8
 
 dev_dependencies:
   flutter_test:

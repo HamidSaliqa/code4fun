@@ -4,6 +4,7 @@ import 'package:code4fun/detail_project.dart';
 import 'package:code4fun/gallery.dart';
 import 'package:code4fun/home_page.dart';
 import 'package:code4fun/our_services.dart';
+import 'package:code4fun/push_data.dart';
 import 'package:code4fun/service_details_page.dart';
 import 'package:code4fun/splash.dart';
 import 'package:code4fun/student_project.dart';
@@ -34,9 +35,10 @@ class MyApp extends StatelessWidget {
         GetPage(name:"/ServiceDetails", page:()=>const ServiceDetailsPage()),
         GetPage(name:"/WhoCanBenefit", page:()=>const WhoCanBenefit()),
         GetPage(name:"/StudentProject", page:()=>const StudentProject()),
-        GetPage(name:"/DetailsProject", page:()=>const DetailsProject()),
+        GetPage(name:"/DetailsProject", page:()=> DetailsProject()),
         GetPage(name:"/Gallery", page:()=>GalleryPage()),
         GetPage(name:"/ContactUs", page:()=>const ContactUs()),
+        GetPage(name:"/PushData", page:()=>const PushData()),
 
 
 

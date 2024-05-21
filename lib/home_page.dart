@@ -1,6 +1,9 @@
 import 'package:code4fun/widget.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,6 +62,27 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
+        ///Bottom navigation bar use curved nav bar package
+        bottomNavigationBar: CurvedNavigationBar(
+          height: 60,
+          items: const [
+            Icon(Icons.home,color: Colors.white,size: 40,),
+            Icon(Icons.upload,color: Colors.white,size: 40,),
+          ],
+          backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
+          buttonBackgroundColor: const Color.fromRGBO(0, 141, 255, 0.8),
+          color:const Color.fromRGBO(3, 125, 214, 0.8),
+          onTap: (index) {
+            if ( index == 0){
+              Get.toNamed("/Home");
+            }else{
+              Get.toNamed("/PushData");
+            }
+
+          },
+        ),
+
+
           backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
           body: Column(
             children: [
@@ -67,6 +91,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color.fromRGBO(3, 125, 214, 0.8),
                   child: Row(
                     children: [
+                      ///logo app bar
                       Image.asset("assets/wassalogo.png"),
                       const SizedBox(
                         width: 10,

@@ -1,17 +1,24 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class DetailsProject extends StatelessWidget {
   final String? imagePath;
+  final String? description;
+  final String? projectLink;
+  final databaseRefrence = FirebaseDatabase.instance.ref("storeData");
 
-  const DetailsProject({Key? key,  this.imagePath}) : super(key: key);
+
+  DetailsProject({Key? key, this.imagePath, this.description, this.projectLink})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()async{
+      onWillPop: () async {
         Get.toNamed("/StudentProject");
-        return true ;
+        return true;
       },
       child: Scaffold(
         backgroundColor: const Color.fromARGB(100, 94, 90, 90),
@@ -35,6 +42,7 @@ class DetailsProject extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
+                          ///Use the imagePath here
                           child: Image.network(
                             imagePath!,
                             fit: BoxFit.cover,
@@ -56,14 +64,9 @@ class DetailsProject extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                             color: const Color.fromRGBO(235, 235, 235, 1),
                           ),
-                          child: const Center(
-                            child: Text(
-                              "Description",
-                              style: TextStyle(
-                                fontFamily: "CustomFont",
-                                fontSize: 30,
-                              ),
-                            ),
+                          child: Center(
+                            ///Use description here
+                            child: Text(description!),
                           ),
                         ),
                       ),
@@ -72,7 +75,7 @@ class DetailsProject extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: SizedBox(
                         height: 65,
-                        width:double.infinity,
+                        width: double.infinity,
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
@@ -84,7 +87,9 @@ class DetailsProject extends StatelessWidget {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            print(projectLink);
+                          },
                           child: const Text(
                             "Project Link",
                             style: TextStyle(

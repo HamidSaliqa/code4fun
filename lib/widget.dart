@@ -13,19 +13,18 @@ const labelTextStyle = TextStyle(
   fontFamily: 'CustomFont',
 );
 
-
 ///slider for image
 Widget slider({required List<String> image}) {
   return Padding(
-    padding:const EdgeInsets.only(top: 10,left: 12,right: 12),
+    padding: const EdgeInsets.only(top: 10, left: 12, right: 12),
     child: Container(
       clipBehavior: Clip.antiAlias,
       width: 500,
       height: 500,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color:const Color.fromRGBO(217, 217, 217, 1)),
+          borderRadius: BorderRadius.circular(20),
+          color: const Color.fromRGBO(217, 217, 217, 1)),
       child: ImageSlideshow(
-
         indicatorRadius: 8,
 
         /// Width of the [ImageSlideshow].
@@ -44,9 +43,9 @@ Widget slider({required List<String> image}) {
         indicatorBackgroundColor: Colors.grey,
 
         /// Called whenever the page in the center of the viewport changes.
-        onPageChanged: (value) {
-          print('Page changed: $value');
-        },
+        // onPageChanged: (value) {
+        //   print('Page changed: $value');
+        // },
 
         /// Auto scroll interval.
         /// Do not auto scroll with null or 0.
@@ -59,7 +58,7 @@ Widget slider({required List<String> image}) {
         /// Add the sample image file into the images folder
         children: [
           for (var imageUrl in image)
-            Image.network(imageUrl),
+            Image.network(imageUrl, fit: BoxFit.cover),
         ],
       ),
     ),
@@ -72,7 +71,8 @@ class CustomButton extends StatelessWidget {
   final String nameOfButton;
   final VoidCallback onPressed;
 
-  const CustomButton({super.key, required this.nameOfButton, required this.onPressed});
+  const CustomButton(
+      {super.key, required this.nameOfButton, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,8 @@ class CustomButton extends StatelessWidget {
                 const MaterialStatePropertyAll(Color.fromRGBO(3, 125, 214, 1))),
         onPressed: onPressed,
         child: Text(
-          nameOfButton,textAlign: TextAlign.center,
+          nameOfButton,
+          textAlign: TextAlign.center,
           style: const TextStyle(fontFamily: "CustomFont", fontSize: 30),
         ),
       ),
@@ -133,7 +134,7 @@ Widget customGridview(BuildContext context) {
 
 Map<String, Widget> onPessedCustomButton = {
   "About WASSA": const AboutWassa_page(),
-  "Our Services":  const OurServices(),
+  "Our Services": const OurServices(),
   "Who Can Benefit?": const WhoCanBenefit(),
   "Student Project": StudentProject(),
   "Gallery": GalleryPage(),
