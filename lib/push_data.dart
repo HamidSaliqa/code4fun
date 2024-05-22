@@ -1,12 +1,11 @@
 import 'dart:io';
 import 'package:code4fun/pushDataFile/image_picker_controller.dart';
-import 'package:code4fun/pushDataFile/my_expanded_textField.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-String fAddedLink = '';
+
 
 class PushData extends StatefulWidget {
   const PushData({super.key});
@@ -41,8 +40,6 @@ class _PushDataState extends State<PushData> {
       setState(() {});
     }
 
-
-
     ///Upload Data
     Future<void> _uploadData() async {
       ///When user clicked Image And Data will be Save
@@ -69,8 +66,7 @@ class _PushDataState extends State<PushData> {
       databaseRefrence.child(uniqueFileName).set({
         "Description": desController.text,
         "imagePath": imageUrl,
-        ///اینجا میخوام مقدارش رو ارسال کنم در فایربیس
-        "projectLink":projectLinkController.text,
+        "projectLink": projectLinkController.text,
       }).then((_) {
         setState(() {
           ///show circular
@@ -133,19 +129,24 @@ class _PushDataState extends State<PushData> {
                       ),
                     ),
                     const SizedBox(height: 5),
-                     Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          ///
-                          child: TextField(
-                            controller: projectLinkController,
-                            decoration: const InputDecoration(
-                              hintText: "Add Link",
-                            ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      ///textFeild for projectLink
+                      child: Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          color: const Color.fromRGBO(235, 235, 235, 1),
+                        ),
+                        child: TextField(
+                          controller: projectLinkController,
+                          decoration: const InputDecoration(
+                            enabledBorder: InputBorder.none,
+                            hintText: "Add Link",
                           ),
-
-                        )),
+                        ),
+                      ),
+                    ),
                     LayoutBuilder(
                       builder:
                           (BuildContext context, BoxConstraints constraints) {
@@ -213,5 +214,3 @@ class _PushDataState extends State<PushData> {
     );
   }
 }
-
-

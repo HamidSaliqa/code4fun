@@ -24,24 +24,6 @@ class _StudentProjectState extends State<StudentProject> {
     getData();
   }
 
-  /// get image form Firebase Storage & add path to the list imagePath
-  Future<List<String>> fetchImageUrls() async {
-    try {
-      final storage = firebase_storage.FirebaseStorage.instance;
-      final ref = storage.ref().child('project');
-      final result = await ref.listAll();
-      final List<String> urls = [];
-      for (final item in result.items) {
-        final url = await item.getDownloadURL();
-        urls.add(url);
-      }
-      return urls;
-    } catch (e) {
-      print('Error fetching image URLs: $e');
-      return [];
-    }
-  }
-
   List<String> dataList = [];
   List<String> imageLink = [];
   List<String> projectLink = [];
