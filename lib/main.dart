@@ -6,6 +6,7 @@ import 'package:code4fun/home_page.dart';
 import 'package:code4fun/our_services.dart';
 import 'package:code4fun/push_data.dart';
 import 'package:code4fun/service_details_page.dart';
+import 'package:code4fun/signin_screen.dart';
 import 'package:code4fun/splash.dart';
 import 'package:code4fun/student_project.dart';
 import 'package:code4fun/who_can_benefit.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         GetPage(name:"/Gallery", page:()=>GalleryPage()),
         GetPage(name:"/ContactUs", page:()=>const ContactUs()),
         GetPage(name:"/PushData", page:()=>const PushData()),
+        GetPage(name:"/SignInScreen", page:()=>const SignInScreen()),
 
 
 

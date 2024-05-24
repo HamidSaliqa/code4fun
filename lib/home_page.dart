@@ -32,11 +32,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  @override
-  void dispose() {
-    _isMounted = false;
-    super.dispose();
-  }
+
 
   Future<List<String>> fetchImageUrlsForSlider() async {
     try {
@@ -69,14 +65,14 @@ class _HomePageState extends State<HomePage> {
             Icon(Icons.home,color: Colors.white,size: 40,),
             Icon(Icons.upload,color: Colors.white,size: 40,),
           ],
-          backgroundColor: const Color.fromRGBO(217, 217, 217, 1),
+          backgroundColor: Colors.transparent,
           buttonBackgroundColor: const Color.fromRGBO(0, 141, 255, 0.8),
           color:const Color.fromRGBO(3, 125, 214, 0.8),
           onTap: (index) {
             if ( index == 0){
               Get.toNamed("/Home");
-            }else{
-              Get.toNamed("/PushData");
+            }else if(index == 1){
+              Get.toNamed("/SignInScreen");
             }
 
           },
@@ -144,5 +140,10 @@ class _HomePageState extends State<HomePage> {
             ],
           )),
     );
+  }
+  @override
+  void dispose() {
+    _isMounted = false;
+    super.dispose();
   }
 }
