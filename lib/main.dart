@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         GetPage(name:"/DetailsProject", page:()=> DetailsProject()),
         GetPage(name:"/Gallery", page:()=>GalleryPage()),
         GetPage(name:"/ContactUs", page:()=>const ContactUs()),
-        GetPage(name:"/PushData", page:()=>const PushData()),
+        GetPage(name:"/PushData", page:()=> PushData()),
         GetPage(name:"/SignInScreen", page:()=>const SignInScreen()),
 
 
